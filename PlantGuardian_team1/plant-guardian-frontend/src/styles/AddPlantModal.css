@@ -1,0 +1,390 @@
+/* ============================================================================
+   ADD PLANT MODAL STYLES
+   ============================================================================ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  max-width: 550px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================================================
+   MODAL FORM (matches the JSX: .plant-form, .form-row, .form-actions)
+   ============================================================================ */
+
+.plant-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #065f46;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #d1fae5;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #065f46;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a7c7ab;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
+}
+
+.form-group input[aria-invalid='true'],
+.form-group select[aria-invalid='true'] {
+  border-color: #ef4444;
+}
+
+.form-group input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #d1fae5;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================================
+   MODAL HEADER
+   ============================================================================ */
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #d1fae5;
+  background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modal-title,
+.modal-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #065f46;
+  margin: 0;
+}
+
+.btn-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #f0fdf4;
+  border: 1px solid #d1fae5;
+  border-radius: 0.5rem;
+  color: #059669;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  font-size: 0;
+}
+
+.btn-close:hover {
+  background: #dcfce7;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+/* ============================================================================
+   MODAL FORM
+   ============================================================================ */
+
+.modal-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #065f46;
+  font-size: 0.95rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1fae5;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #065f46;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-input::placeholder,
+.form-select::placeholder,
+.form-textarea::placeholder {
+  color: #a7f3d0;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+  background: #fafbf9;
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #ef4444;
+}
+
+.form-input.error:focus,
+.form-select.error:focus,
+.form-textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-input:disabled,
+.form-select:disabled,
+.form-textarea:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: #059669;
+  margin: 0;
+}
+
+/* ============================================================================
+   FREQUENCY INPUT
+   ============================================================================ */
+
+.frequency-input {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.frequency-field {
+  flex: 1;
+}
+
+.frequency-label {
+  color: #059669;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   ERROR MESSAGES
+   ============================================================================ */
+
+.error-message {
+  font-size: 0.8rem;
+  color: #dc2626;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ============================================================================
+   MODAL ACTIONS
+   ============================================================================ */
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d1fae5;
+  margin-top: 1rem;
+}
+
+.btn-cancel,
+.btn-submit {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background: #f0fdf4;
+  color: #059669;
+  border: 1px solid #d1fae5;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background: #dcfce7;
+  border-color: #a7f3d0;
+}
+
+.btn-submit {
+  background: #059669;
+  color: white;
+  box-shadow: 0 4px 6px rgba(5, 150, 105, 0.2);
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #047857;
+  box-shadow: 0 6px 12px rgba(5, 150, 105, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-submit:disabled,
+.btn-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   TEXTAREA
+   ============================================================================ */
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .modal-content {
+    max-width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .modal-form {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+}
